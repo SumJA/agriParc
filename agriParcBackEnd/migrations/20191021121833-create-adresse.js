@@ -1,36 +1,39 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Users', {
+    return queryInterface.createTable('Adresses', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      gaec_id: {
+      user_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'gaecs',
+          model: 'users',
           key: 'id'
         },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
-      nom: {
+      numeroVoie: {
+        type: Sequelize.INTEGER
+      },
+      libelle: {
         type: Sequelize.STRING
       },
-      prenom: {
+      complementAdresse: {
         type: Sequelize.STRING
       },
-      pseudo: {
+      codePostal: {
         type: Sequelize.STRING
       },
-      email: {
+      ville: {
         type: Sequelize.STRING
       },
-      password: {
+      pays: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -44,6 +47,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Users');
+    return queryInterface.dropTable('Adresses');
   }
 };
