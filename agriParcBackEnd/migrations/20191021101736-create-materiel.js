@@ -19,9 +19,11 @@ module.exports = {
         onDelete: 'CASCADE'
       },
       type: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       model: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       photo: {

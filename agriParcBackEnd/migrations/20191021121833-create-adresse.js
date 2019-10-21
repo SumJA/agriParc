@@ -19,21 +19,27 @@ module.exports = {
         onDelete: 'CASCADE'
       },
       numeroVoie: {
+        allowNull: true,
         type: Sequelize.INTEGER
       },
       libelle: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       complementAdresse: {
+        allowNull: true,
         type: Sequelize.STRING
       },
       codePostal: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       ville: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       pays: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       createdAt: {

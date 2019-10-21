@@ -19,18 +19,25 @@ module.exports = {
         onDelete: 'CASCADE'
       },
       nom: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       prenom: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       pseudo: {
+        allowNull: false,
+        unique: true,
         type: Sequelize.STRING
       },
       email: {
+        allowNull: false,
+        unique: true,
         type: Sequelize.STRING
       },
       password: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       createdAt: {
