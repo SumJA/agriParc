@@ -102,3 +102,4 @@ public
 
 # Env variable 
 .env
+config/config.json
