@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.TEXT,
     disponibiliteDebut: DataTypes.DATE,
     disponibiliteFin: DataTypes.DATE,
+    status: DataTypes.STRING,
     localisation: DataTypes.GEOMETRY
   }, {});
   Materiel.associate = function(models) {

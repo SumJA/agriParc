@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Gaec.associate = (models) => {
     // associations can be defined here
-    Gaec.hasMany(models.User, { foreignKey: 'gaec_id' });
+    Gaec.hasMany(models.User, { foreignKey : 'gaec_id'});
   };
   return Gaec;
 };
