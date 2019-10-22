@@ -8,7 +8,7 @@ export class UsersService {
   private _usersUrl: string = 'http://localhost:3000/users/';  // URL to web api
 
   constructor(private _http: HttpClient) {
-
+    this.updateUserInfo();
   }
 
   /**
@@ -18,30 +18,31 @@ export class UsersService {
   * @param id (optional) the user id
   * @return : a Promise
   */
-  public askUserFromServer(id?: number): Promise<Users> {
-    return this._http.get<Users>(this._usersUrl + id).toPromise();
+  public askUserFromServer(): Promise<Users> {
+    return this._http.get<Users>(this._usersUrl + 1).toPromise();
   }
 
   /**
   * Update the statistic list
   * Do a `GET` request to ask for all statistics from the server
   */
-  public updateUserInfo(): Users | any {
-    const userFound = this.askUserFromServer(1);
-    userFound.then(userInfo => {
-        const userToImport = new Users;
-        userToImport.id = userInfo.id;
-        userToImport.nom = userInfo.nom;
-        userToImport.prenom = userInfo.prenom;
-        userToImport.pseudo = userInfo.pseudo;
-        userToImport.email = userInfo.email;
-        userToImport.password = userInfo.password;
-        this._user = userToImport;
-      return userInfo;
-    }).catch(error => {
-      return error.status;
-    });
-  }
+ public updateUserInfo(): Users | any {
+  const userFound = this.askUserFromServer();
+  userFound.then(userInfo => {
+    const userToUpdate = new Users();
+    userToUpdate.id = userInfo.id;
+    userToUpdate.nom = userInfo.nom;
+    userToUpdate.prenom = userInfo.prenom;
+    userToUpdate.pseudo = userInfo.pseudo;
+    userToUpdate.password = userInfo.password;
+    userToUpdate.email = userInfo.email;
+    userToUpdate.gaec_id = userInfo.gaec_id;
+    this._user = userToUpdate;
+    return this._user;
+  }).catch(error => {
+    return error.status;
+  });
+}
 
   public get user(): Users {
     return this._user;

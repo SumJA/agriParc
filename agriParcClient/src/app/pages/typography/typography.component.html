@@ -2,15 +2,18 @@
     <div class="col-md-12">
       <div class="card card-user">
         <div class="card-header">
-          <h5 class="card-title">Modifier mon profil</h5>
+          <h5 class="card-title">Mettre un matériel en prêt pour le GAEC {{ userService.user.gaec_id }}</h5>
         </div>
         <div class="card-body">
           <form>
             <div class="row">
               <div class="col-md-5 pr-1">
                 <div class="form-group">
-                  <label>GAEC</label>
-                  <input type="text" class="form-control" placeholder="Nom du GAEC" value="">
+                  <label for="materiel-select">Matériel</label>
+                    <select class="form-control"  name="materiel" id="materiel-select">
+                      <option value="">--Veuillez choisir le matériel--</option>
+                      <option *ngFor="let materiel of materielsService.materiel" [value]="materiel.type">{{materiel.type}}</option>
+                    </select>
                 </div>
               </div>
               <div class="col-md-3 px-1">
@@ -21,7 +24,7 @@
               </div>
               <div class="col-md-4 pl-1">
                 <div class="form-group">
-                  <label for="exampleInputEmail1"> Adresse mail</label>
+                  <label for="exampleInputEmail1">Adresse mail</label>
                   <input type="email" class="form-control" placeholder="Email" value="">
                 </div>
               </div>
