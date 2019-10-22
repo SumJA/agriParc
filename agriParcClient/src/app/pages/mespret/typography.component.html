@@ -1,0 +1,69 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card card-user">
+      <div class="card-header">
+        <h5 class="card-title">Mettre un matériel en prêt pour le GAEC {{ userService.user.gaec_id }}</h5>
+      </div>
+
+      <div class="alert alert-success alert-dismissible fade show" *ngIf="successMessage">
+        <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+          <i class="nc-icon nc-simple-remove"></i>
+        </button>
+        <span>
+          <b> Success - </b> {{successMessage}}</span>
+      </div>
+
+      <div class="alert alert-danger alert-dismissible fade show" *ngIf="errorMessage">
+        <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+          <i class="nc-icon nc-simple-remove"></i>
+        </button>
+        <span>
+          <b> Danger - </b> {{errorMessage}}</span>
+      </div>
+
+      <div class="card-body">
+        <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+          <div class="row">
+            <div class="col-md-5 pr-1">
+              <div class="form-group">
+                <label for="materiel-select">Matériel</label>
+                <select formControlName="materielId" class="form-control" name="materiel" id="materiel-select">
+                  <option value="">--Veuillez choisir le matériel--</option>
+                  <option *ngFor="let materiel of materielsService.materiel"
+                    [value]="materiel.id">{{materiel.type}} {{materiel.model}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 pr-1">
+              <div class="form-group">
+                <label>Date de début du Prêt</label>
+                <input formControlName="materielDateDebut" type="text" class="form-control" placeholder="2019-10-22T09:02:44.000Z" value="">
+              </div>
+            </div>
+            <div class="col-md-6 pl-1">
+              <div class="form-group">
+                <label>Date de fin du Prêt</label>
+                <input  formControlName="materielDateFin" type="text" class="form-control" placeholder="2019-10-22T09:02:44.000Z" value="">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Localisation de l'exploitation</label>
+                <input formControlName="materielLocalisation" type="text" class="form-control" placeholder="100.0, 0.0" value="">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="update ml-auto mr-auto">
+              <button type="submit" class="btn btn-primary btn-round">Envoyer</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
