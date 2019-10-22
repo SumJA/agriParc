@@ -31,7 +31,7 @@
               </th>
             </thead>
             <tbody>
-              <tr *ngFor="let materiel of materielsService.materiel; let i = index">
+              <tr [ngSwitch]="materiel.status" *ngFor="let materiel of materielsService.materiel; let i = index">
                 <td class="text-center">
                     {{i}}
                 </td>
@@ -49,7 +49,10 @@
                 </td>
                 <td class="text-center">
                 </td>
-                <td class="text-center">
+                <td *ngSwitchCase="'En location'" class="text-center alert alert-danger">
+                    {{materiel.status}}
+                </td>
+                <td *ngSwitchCase="'Libre'" class="text-center alert alert-success">
                     {{materiel.status}}
                 </td>
               </tr>
