@@ -5,9 +5,18 @@ export class Users {
     private _pseudo: string;
     private _email: string;
     private _password: string;
+    private _gaec_id: number; //TODO change to GAEC model
 
     constructor() {
 
+    }
+
+    public get gaec_id(): number {
+        return this._gaec_id;
+    }
+
+    public set gaec_id(value: number) {
+        this._gaec_id = value;
     }
 
     public get id(): number {

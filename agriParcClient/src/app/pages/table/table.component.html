@@ -31,27 +31,29 @@
               </th>
             </thead>
             <tbody>
-              <tr>
+              <tr [ngSwitch]="materiel.status" *ngFor="let materiel of materielsService.materiel; let i = index">
                 <td class="text-center">
-                  1
+                    {{i}}
                 </td>
                 <td class="text-center">
-                  Moissonneuse
+                  {{materiel.type}}
                 </td>
                 <td class="text-center">
-                  04-582-750
+                  {{materiel.model}}
                 </td>
                 <td class="text-center">
-                  01/12/2019
+                  {{materiel.disponibiliteDebut}}
                 </td>
                 <td class="text-center">
-                  04/12/209
+                    {{materiel.disponibiliteFin}}
                 </td>
                 <td class="text-center">
-
                 </td>
-                <td class="text-center alert alert-primary">
-                  Libre
+                <td *ngSwitchCase="'En location'" class="text-center alert alert-danger">
+                    {{materiel.status}}
+                </td>
+                <td *ngSwitchCase="'Libre'" class="text-center alert alert-success">
+                    {{materiel.status}}
                 </td>
               </tr>
             </tbody>
