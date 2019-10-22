@@ -13,18 +13,17 @@ export class UserComponent implements OnInit{
     public errorMessage: string = null;
 
     constructor(private _userService: UsersService) {
-        this._userService.askUserFromServer()
+        this._userService.askUserFromServer(1)
             .then(res => {
                 this.user = res;
+                console.log(this.user);
             })
-            .catch(err => console.error(err));
+            .catch(error => console.error(error));
     }
 
     ngOnInit() {
         
     }
 
-    public get userService(): UsersService {
-        return this._userService;
-    }
+   
 }
