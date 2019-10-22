@@ -41,6 +41,9 @@ module.exports = {
       localisation: {
         type: Sequelize.GEOMETRY
       },
+      status: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
