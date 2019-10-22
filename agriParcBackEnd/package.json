@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "nodemon ./bin/www"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -15,5 +15,8 @@
     "sequelize": "^5.21.1",
     "sequelize-cli": "^5.5.1",
     "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "cors": "^2.8.5"
   }
 }
