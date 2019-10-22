@@ -30,6 +30,7 @@ export class UsersService {
     const userFound = this.askUserFromServer(1);
     userFound.then(userInfo => {
         const userToImport = new Users;
+        userToImport.id = userInfo.id;
         userToImport.nom = userInfo.nom;
         userToImport.prenom = userInfo.prenom;
         userToImport.pseudo = userInfo.pseudo;
@@ -40,5 +41,13 @@ export class UsersService {
     }).catch(error => {
       return error.status;
     });
+  }
+
+  public get user(): Users {
+    return this._user;
+  }
+
+  public set user(user : Users) {
+    this._user = user;
   }
 }
