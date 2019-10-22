@@ -15,6 +15,7 @@ import { NotificationsComponent }   from '../../pages/notifications/notification
 import { UpgradeComponent }         from '../../pages/upgrade/upgrade.component';
 
 import { UsersService } from '../../services/users/users.service';
+import { MaterielService } from '../../services/materiels/materiel.service';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -37,7 +38,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NotificationsComponent,
   ],
   providers: [
-    UsersService
+    UsersService,
+    MaterielService
   ]
 })
 

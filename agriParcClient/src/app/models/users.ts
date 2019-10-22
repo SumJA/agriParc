@@ -1,4 +1,5 @@
 export class Users {
+    private _id: number;
     private _nom: string;
     private _prenom: string;
     private _pseudo: string;
@@ -7,6 +8,14 @@ export class Users {
 
     constructor() {
 
+    }
+
+    public get id(): number {
+        return this._id;
+    }
+
+    public set id(value: number) {
+        this._id = value;
     }
 
     public get nom(): string {
